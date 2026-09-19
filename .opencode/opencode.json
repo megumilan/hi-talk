@@ -1,0 +1,14 @@
+{
+    "$schema": "https://opencode.ai/config.json",
+    "instructions": ["../AGENTS.md"],
+    "command": {
+        "verify": {
+            "description": "Run repo-wide checks (format + lint) before finishing work",
+            "template": "Run `pnpm format` and `pnpm lint` from the repo root, fix any issues they surface, and only stop after both pass."
+        },
+        "scaffold": {
+            "description": "Scaffold a new app package under apps/ following repo conventions",
+            "template": "Scaffold a new app in `apps/$1` as a pnpm workspace package. Follow repo conventions: Prettier style (4-space indent, no semicolons, single quotes, trailingComma es5), ESLint flat config is repo-wide, and apps are run per-package via `pnpm -F <name>`. Do not add root scripts."
+        }
+    }
+}
