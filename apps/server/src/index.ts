@@ -1,8 +1,11 @@
+import 'dotenv/config'
 import cors from 'cors'
 import express from 'express'
+import { sql } from 'drizzle-orm'
 import { z } from 'zod'
 import { Application } from 'express-zod'
 import { openapi } from '@express-zod/openapi'
+import { db } from './db/index.js'
 
 const port = Number(process.env.PORT ?? 3000)
 
@@ -22,12 +25,26 @@ const app = new Application()
         '/health',
         {
             responses: {
-                200: z.object({ status: z.literal('ok') }),
+                200: z.object({ status: z.literal('ok'), db: z.literal('up') }),
+                503: z.object({
+                    status: z.literal('degraded'),
+                    db: z.literal('down'),
+                    error: z.string(),
+                }),
             },
             meta: { summary: 'Health check' },
         },
-        (_req, res) => {
-            res.json({ status: 'ok' })
+        async (_req, res) => {
+            try {
+                await db.execute(sql`SELECT 1`)
+                res.json({ status: 'ok', db: 'up' })
+            } catch (error) {
+                res.status(503).json({
+                    status: 'degraded',
+                    db: 'down',
+                    error: (error as Error).message,
+                })
+            }
         }
     )
 
