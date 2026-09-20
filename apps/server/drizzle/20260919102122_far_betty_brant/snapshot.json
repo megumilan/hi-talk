@@ -1,0 +1,789 @@
+{
+    "version": "6",
+    "id": "6c71fb61-67c8-4ef7-96a8-dc91f7b935d2",
+    "prevIds": ["57350314-d609-4ebd-a949-130b7b33a283"],
+    "dialect": "mysql",
+    "ddl": [
+        {
+            "name": "conversation_members",
+            "entityType": "tables"
+        },
+        {
+            "type": "char(24)",
+            "notNull": true,
+            "autoIncrement": false,
+            "default": null,
+            "onUpdateNow": false,
+            "onUpdateNowFsp": null,
+            "charSet": null,
+            "collation": null,
+            "generated": null,
+            "name": "id",
+            "table": "conversation_members",
+            "entityType": "columns"
+        },
+        {
+            "type": "timestamp",
+            "notNull": true,
+            "autoIncrement": false,
+            "default": "(now())",
+            "onUpdateNow": false,
+            "onUpdateNowFsp": null,
+            "charSet": null,
+            "collation": null,
+            "generated": null,
+            "name": "created_at",
+            "table": "conversation_members",
+            "entityType": "columns"
+        },
+        {
+            "type": "timestamp",
+            "notNull": true,
+            "autoIncrement": false,
+            "default": "(now())",
+            "onUpdateNow": true,
+            "onUpdateNowFsp": null,
+            "charSet": null,
+            "collation": null,
+            "generated": null,
+            "name": "updated_at",
+            "table": "conversation_members",
+            "entityType": "columns"
+        },
+        {
+            "type": "char(24)",
+            "notNull": true,
+            "autoIncrement": false,
+            "default": null,
+            "onUpdateNow": false,
+            "onUpdateNowFsp": null,
+            "charSet": null,
+            "collation": null,
+            "generated": null,
+            "name": "conversation_id",
+            "table": "conversation_members",
+            "entityType": "columns"
+        },
+        {
+            "type": "char(24)",
+            "notNull": true,
+            "autoIncrement": false,
+            "default": null,
+            "onUpdateNow": false,
+            "onUpdateNowFsp": null,
+            "charSet": null,
+            "collation": null,
+            "generated": null,
+            "name": "user_id",
+            "table": "conversation_members",
+            "entityType": "columns"
+        },
+        {
+            "type": "char(24)",
+            "notNull": false,
+            "autoIncrement": false,
+            "default": null,
+            "onUpdateNow": false,
+            "onUpdateNowFsp": null,
+            "charSet": null,
+            "collation": null,
+            "generated": null,
+            "name": "last_read_message_id",
+            "table": "conversation_members",
+            "entityType": "columns"
+        },
+        {
+            "name": "conversations",
+            "entityType": "tables"
+        },
+        {
+            "type": "char(24)",
+            "notNull": true,
+            "autoIncrement": false,
+            "default": null,
+            "onUpdateNow": false,
+            "onUpdateNowFsp": null,
+            "charSet": null,
+            "collation": null,
+            "generated": null,
+            "name": "id",
+            "table": "conversations",
+            "entityType": "columns"
+        },
+        {
+            "type": "timestamp",
+            "notNull": true,
+            "autoIncrement": false,
+            "default": "(now())",
+            "onUpdateNow": false,
+            "onUpdateNowFsp": null,
+            "charSet": null,
+            "collation": null,
+            "generated": null,
+            "name": "created_at",
+            "table": "conversations",
+            "entityType": "columns"
+        },
+        {
+            "type": "timestamp",
+            "notNull": true,
+            "autoIncrement": false,
+            "default": "(now())",
+            "onUpdateNow": true,
+            "onUpdateNowFsp": null,
+            "charSet": null,
+            "collation": null,
+            "generated": null,
+            "name": "updated_at",
+            "table": "conversations",
+            "entityType": "columns"
+        },
+        {
+            "type": "enum('private','group')",
+            "notNull": true,
+            "autoIncrement": false,
+            "default": "'private'",
+            "onUpdateNow": false,
+            "onUpdateNowFsp": null,
+            "charSet": null,
+            "collation": null,
+            "generated": null,
+            "name": "type",
+            "table": "conversations",
+            "entityType": "columns"
+        },
+        {
+            "type": "varchar(255)",
+            "notNull": false,
+            "autoIncrement": false,
+            "default": null,
+            "onUpdateNow": false,
+            "onUpdateNowFsp": null,
+            "charSet": null,
+            "collation": null,
+            "generated": null,
+            "name": "name",
+            "table": "conversations",
+            "entityType": "columns"
+        },
+        {
+            "type": "varchar(1024)",
+            "notNull": false,
+            "autoIncrement": false,
+            "default": null,
+            "onUpdateNow": false,
+            "onUpdateNowFsp": null,
+            "charSet": null,
+            "collation": null,
+            "generated": null,
+            "name": "avatar_url",
+            "table": "conversations",
+            "entityType": "columns"
+        },
+        {
+            "type": "char(24)",
+            "notNull": false,
+            "autoIncrement": false,
+            "default": null,
+            "onUpdateNow": false,
+            "onUpdateNowFsp": null,
+            "charSet": null,
+            "collation": null,
+            "generated": null,
+            "name": "owner_id",
+            "table": "conversations",
+            "entityType": "columns"
+        },
+        {
+            "type": "char(24)",
+            "notNull": false,
+            "autoIncrement": false,
+            "default": null,
+            "onUpdateNow": false,
+            "onUpdateNowFsp": null,
+            "charSet": null,
+            "collation": null,
+            "generated": null,
+            "name": "last_message_id",
+            "table": "conversations",
+            "entityType": "columns"
+        },
+        {
+            "type": "timestamp",
+            "notNull": false,
+            "autoIncrement": false,
+            "default": null,
+            "onUpdateNow": false,
+            "onUpdateNowFsp": null,
+            "charSet": null,
+            "collation": null,
+            "generated": null,
+            "name": "last_message_at",
+            "table": "conversations",
+            "entityType": "columns"
+        },
+        {
+            "name": "friendships",
+            "entityType": "tables"
+        },
+        {
+            "type": "char(24)",
+            "notNull": true,
+            "autoIncrement": false,
+            "default": null,
+            "onUpdateNow": false,
+            "onUpdateNowFsp": null,
+            "charSet": null,
+            "collation": null,
+            "generated": null,
+            "name": "id",
+            "table": "friendships",
+            "entityType": "columns"
+        },
+        {
+            "type": "timestamp",
+            "notNull": true,
+            "autoIncrement": false,
+            "default": "(now())",
+            "onUpdateNow": false,
+            "onUpdateNowFsp": null,
+            "charSet": null,
+            "collation": null,
+            "generated": null,
+            "name": "created_at",
+            "table": "friendships",
+            "entityType": "columns"
+        },
+        {
+            "type": "timestamp",
+            "notNull": true,
+            "autoIncrement": false,
+            "default": "(now())",
+            "onUpdateNow": true,
+            "onUpdateNowFsp": null,
+            "charSet": null,
+            "collation": null,
+            "generated": null,
+            "name": "updated_at",
+            "table": "friendships",
+            "entityType": "columns"
+        },
+        {
+            "type": "char(24)",
+            "notNull": true,
+            "autoIncrement": false,
+            "default": null,
+            "onUpdateNow": false,
+            "onUpdateNowFsp": null,
+            "charSet": null,
+            "collation": null,
+            "generated": null,
+            "name": "user_id",
+            "table": "friendships",
+            "entityType": "columns"
+        },
+        {
+            "type": "char(24)",
+            "notNull": true,
+            "autoIncrement": false,
+            "default": null,
+            "onUpdateNow": false,
+            "onUpdateNowFsp": null,
+            "charSet": null,
+            "collation": null,
+            "generated": null,
+            "name": "friend_id",
+            "table": "friendships",
+            "entityType": "columns"
+        },
+        {
+            "type": "char(24)",
+            "notNull": true,
+            "autoIncrement": false,
+            "default": null,
+            "onUpdateNow": false,
+            "onUpdateNowFsp": null,
+            "charSet": null,
+            "collation": null,
+            "generated": null,
+            "name": "requester_id",
+            "table": "friendships",
+            "entityType": "columns"
+        },
+        {
+            "type": "enum('pending','accepted','blocked')",
+            "notNull": true,
+            "autoIncrement": false,
+            "default": "'pending'",
+            "onUpdateNow": false,
+            "onUpdateNowFsp": null,
+            "charSet": null,
+            "collation": null,
+            "generated": null,
+            "name": "status",
+            "table": "friendships",
+            "entityType": "columns"
+        },
+        {
+            "name": "messages",
+            "entityType": "tables"
+        },
+        {
+            "type": "char(24)",
+            "notNull": true,
+            "autoIncrement": false,
+            "default": null,
+            "onUpdateNow": false,
+            "onUpdateNowFsp": null,
+            "charSet": null,
+            "collation": null,
+            "generated": null,
+            "name": "id",
+            "table": "messages",
+            "entityType": "columns"
+        },
+        {
+            "type": "timestamp",
+            "notNull": true,
+            "autoIncrement": false,
+            "default": "(now())",
+            "onUpdateNow": false,
+            "onUpdateNowFsp": null,
+            "charSet": null,
+            "collation": null,
+            "generated": null,
+            "name": "created_at",
+            "table": "messages",
+            "entityType": "columns"
+        },
+        {
+            "type": "timestamp",
+            "notNull": true,
+            "autoIncrement": false,
+            "default": "(now())",
+            "onUpdateNow": true,
+            "onUpdateNowFsp": null,
+            "charSet": null,
+            "collation": null,
+            "generated": null,
+            "name": "updated_at",
+            "table": "messages",
+            "entityType": "columns"
+        },
+        {
+            "type": "char(24)",
+            "notNull": true,
+            "autoIncrement": false,
+            "default": null,
+            "onUpdateNow": false,
+            "onUpdateNowFsp": null,
+            "charSet": null,
+            "collation": null,
+            "generated": null,
+            "name": "conversation_id",
+            "table": "messages",
+            "entityType": "columns"
+        },
+        {
+            "type": "char(24)",
+            "notNull": true,
+            "autoIncrement": false,
+            "default": null,
+            "onUpdateNow": false,
+            "onUpdateNowFsp": null,
+            "charSet": null,
+            "collation": null,
+            "generated": null,
+            "name": "sender_id",
+            "table": "messages",
+            "entityType": "columns"
+        },
+        {
+            "type": "enum('text','image','video','audio','file','location','system')",
+            "notNull": true,
+            "autoIncrement": false,
+            "default": "'text'",
+            "onUpdateNow": false,
+            "onUpdateNowFsp": null,
+            "charSet": null,
+            "collation": null,
+            "generated": null,
+            "name": "type",
+            "table": "messages",
+            "entityType": "columns"
+        },
+        {
+            "type": "json",
+            "notNull": true,
+            "autoIncrement": false,
+            "default": null,
+            "onUpdateNow": false,
+            "onUpdateNowFsp": null,
+            "charSet": null,
+            "collation": null,
+            "generated": null,
+            "name": "content",
+            "table": "messages",
+            "entityType": "columns"
+        },
+        {
+            "type": "char(24)",
+            "notNull": false,
+            "autoIncrement": false,
+            "default": null,
+            "onUpdateNow": false,
+            "onUpdateNowFsp": null,
+            "charSet": null,
+            "collation": null,
+            "generated": null,
+            "name": "reply_to_message_id",
+            "table": "messages",
+            "entityType": "columns"
+        },
+        {
+            "name": "users",
+            "entityType": "tables"
+        },
+        {
+            "type": "char(24)",
+            "notNull": true,
+            "autoIncrement": false,
+            "default": null,
+            "onUpdateNow": false,
+            "onUpdateNowFsp": null,
+            "charSet": null,
+            "collation": null,
+            "generated": null,
+            "name": "id",
+            "table": "users",
+            "entityType": "columns"
+        },
+        {
+            "type": "timestamp",
+            "notNull": true,
+            "autoIncrement": false,
+            "default": "(now())",
+            "onUpdateNow": false,
+            "onUpdateNowFsp": null,
+            "charSet": null,
+            "collation": null,
+            "generated": null,
+            "name": "created_at",
+            "table": "users",
+            "entityType": "columns"
+        },
+        {
+            "type": "timestamp",
+            "notNull": true,
+            "autoIncrement": false,
+            "default": "(now())",
+            "onUpdateNow": true,
+            "onUpdateNowFsp": null,
+            "charSet": null,
+            "collation": null,
+            "generated": null,
+            "name": "updated_at",
+            "table": "users",
+            "entityType": "columns"
+        },
+        {
+            "type": "varchar(255)",
+            "notNull": true,
+            "autoIncrement": false,
+            "default": null,
+            "onUpdateNow": false,
+            "onUpdateNowFsp": null,
+            "charSet": null,
+            "collation": null,
+            "generated": null,
+            "name": "name",
+            "table": "users",
+            "entityType": "columns"
+        },
+        {
+            "type": "varchar(255)",
+            "notNull": true,
+            "autoIncrement": false,
+            "default": null,
+            "onUpdateNow": false,
+            "onUpdateNowFsp": null,
+            "charSet": null,
+            "collation": null,
+            "generated": null,
+            "name": "email",
+            "table": "users",
+            "entityType": "columns"
+        },
+        {
+            "columns": [
+                {
+                    "value": "conversation_id",
+                    "isExpression": false
+                },
+                {
+                    "value": "user_id",
+                    "isExpression": false
+                }
+            ],
+            "isUnique": true,
+            "using": null,
+            "algorithm": null,
+            "lock": null,
+            "nameExplicit": true,
+            "name": "conversation_members_pair_unique",
+            "table": "conversation_members",
+            "entityType": "indexes"
+        },
+        {
+            "columns": [
+                {
+                    "value": "user_id",
+                    "isExpression": false
+                }
+            ],
+            "isUnique": false,
+            "using": null,
+            "algorithm": null,
+            "lock": null,
+            "nameExplicit": true,
+            "name": "conversation_members_user_idx",
+            "table": "conversation_members",
+            "entityType": "indexes"
+        },
+        {
+            "columns": ["conversation_id"],
+            "tableTo": "conversations",
+            "columnsTo": ["id"],
+            "onUpdate": "NO ACTION",
+            "onDelete": "CASCADE",
+            "nameExplicit": false,
+            "name": "conversation_members_conversation_id_conversations_id_fk",
+            "table": "conversation_members",
+            "entityType": "fks"
+        },
+        {
+            "columns": ["user_id"],
+            "tableTo": "users",
+            "columnsTo": ["id"],
+            "onUpdate": "NO ACTION",
+            "onDelete": "CASCADE",
+            "nameExplicit": false,
+            "name": "conversation_members_user_id_users_id_fk",
+            "table": "conversation_members",
+            "entityType": "fks"
+        },
+        {
+            "columns": ["id"],
+            "name": "PRIMARY",
+            "table": "conversation_members",
+            "entityType": "pks"
+        },
+        {
+            "columns": [
+                {
+                    "value": "updated_at",
+                    "isExpression": false
+                }
+            ],
+            "isUnique": false,
+            "using": null,
+            "algorithm": null,
+            "lock": null,
+            "nameExplicit": true,
+            "name": "conversations_updated_idx",
+            "table": "conversations",
+            "entityType": "indexes"
+        },
+        {
+            "columns": ["owner_id"],
+            "tableTo": "users",
+            "columnsTo": ["id"],
+            "onUpdate": "NO ACTION",
+            "onDelete": "SET NULL",
+            "nameExplicit": false,
+            "name": "conversations_owner_id_users_id_fk",
+            "table": "conversations",
+            "entityType": "fks"
+        },
+        {
+            "columns": ["id"],
+            "name": "PRIMARY",
+            "table": "conversations",
+            "entityType": "pks"
+        },
+        {
+            "columns": [
+                {
+                    "value": "user_id",
+                    "isExpression": false
+                },
+                {
+                    "value": "friend_id",
+                    "isExpression": false
+                }
+            ],
+            "isUnique": true,
+            "using": null,
+            "algorithm": null,
+            "lock": null,
+            "nameExplicit": true,
+            "name": "friendships_pair_unique",
+            "table": "friendships",
+            "entityType": "indexes"
+        },
+        {
+            "columns": [
+                {
+                    "value": "user_id",
+                    "isExpression": false
+                }
+            ],
+            "isUnique": false,
+            "using": null,
+            "algorithm": null,
+            "lock": null,
+            "nameExplicit": true,
+            "name": "friendships_user_idx",
+            "table": "friendships",
+            "entityType": "indexes"
+        },
+        {
+            "columns": [
+                {
+                    "value": "friend_id",
+                    "isExpression": false
+                }
+            ],
+            "isUnique": false,
+            "using": null,
+            "algorithm": null,
+            "lock": null,
+            "nameExplicit": true,
+            "name": "friendships_friend_idx",
+            "table": "friendships",
+            "entityType": "indexes"
+        },
+        {
+            "columns": ["user_id"],
+            "tableTo": "users",
+            "columnsTo": ["id"],
+            "onUpdate": "NO ACTION",
+            "onDelete": "CASCADE",
+            "nameExplicit": false,
+            "name": "friendships_user_id_users_id_fk",
+            "table": "friendships",
+            "entityType": "fks"
+        },
+        {
+            "columns": ["friend_id"],
+            "tableTo": "users",
+            "columnsTo": ["id"],
+            "onUpdate": "NO ACTION",
+            "onDelete": "CASCADE",
+            "nameExplicit": false,
+            "name": "friendships_friend_id_users_id_fk",
+            "table": "friendships",
+            "entityType": "fks"
+        },
+        {
+            "columns": ["requester_id"],
+            "tableTo": "users",
+            "columnsTo": ["id"],
+            "onUpdate": "NO ACTION",
+            "onDelete": "NO ACTION",
+            "nameExplicit": false,
+            "name": "friendships_requester_id_users_id_fk",
+            "table": "friendships",
+            "entityType": "fks"
+        },
+        {
+            "columns": ["id"],
+            "name": "PRIMARY",
+            "table": "friendships",
+            "entityType": "pks"
+        },
+        {
+            "columns": [
+                {
+                    "value": "conversation_id",
+                    "isExpression": false
+                }
+            ],
+            "isUnique": false,
+            "using": null,
+            "algorithm": null,
+            "lock": null,
+            "nameExplicit": true,
+            "name": "messages_conversation_idx",
+            "table": "messages",
+            "entityType": "indexes"
+        },
+        {
+            "columns": [
+                {
+                    "value": "sender_id",
+                    "isExpression": false
+                }
+            ],
+            "isUnique": false,
+            "using": null,
+            "algorithm": null,
+            "lock": null,
+            "nameExplicit": true,
+            "name": "messages_sender_idx",
+            "table": "messages",
+            "entityType": "indexes"
+        },
+        {
+            "columns": ["conversation_id"],
+            "tableTo": "conversations",
+            "columnsTo": ["id"],
+            "onUpdate": "NO ACTION",
+            "onDelete": "CASCADE",
+            "nameExplicit": false,
+            "name": "messages_conversation_id_conversations_id_fk",
+            "table": "messages",
+            "entityType": "fks"
+        },
+        {
+            "columns": ["sender_id"],
+            "tableTo": "users",
+            "columnsTo": ["id"],
+            "onUpdate": "NO ACTION",
+            "onDelete": "NO ACTION",
+            "nameExplicit": false,
+            "name": "messages_sender_id_users_id_fk",
+            "table": "messages",
+            "entityType": "fks"
+        },
+        {
+            "columns": ["id"],
+            "name": "PRIMARY",
+            "table": "messages",
+            "entityType": "pks"
+        },
+        {
+            "columns": [
+                {
+                    "value": "email",
+                    "isExpression": false
+                }
+            ],
+            "isUnique": true,
+            "using": null,
+            "algorithm": null,
+            "lock": null,
+            "nameExplicit": false,
+            "name": "users_email_unique",
+            "table": "users",
+            "entityType": "indexes"
+        },
+        {
+            "columns": ["id"],
+            "name": "PRIMARY",
+            "table": "users",
+            "entityType": "pks"
+        }
+    ],
+    "renames": []
+}

@@ -6,6 +6,7 @@ import { z } from 'zod'
 import { Application } from 'express-zod'
 import { openapi } from '@express-zod/openapi'
 import { db } from './db/index.js'
+import { authRouter } from './routes/auth.js'
 
 const port = Number(process.env.PORT ?? 3000)
 
@@ -45,6 +46,25 @@ const app = new Application()
                     error: (error as Error).message,
                 })
             }
+        }
+    )
+    .use(authRouter)
+    .use(
+        (
+            err: unknown,
+            _req: express.Request,
+            res: express.Response,
+            _next: express.NextFunction
+        ) => {
+            if (err instanceof z.ZodError) {
+                res.status(400).json({
+                    error: 'Invalid request',
+                    issues: err.issues,
+                })
+                return
+            }
+            console.error(err)
+            res.status(500).json({ error: 'Internal server error' })
         }
     )
 

@@ -12,9 +12,26 @@ import { commonFields } from './common.js'
 
 export const users = mysqlTable('users', {
     ...commonFields,
-    name: varchar('name', { length: 255 }).notNull(),
+    username: varchar('username', { length: 255 }).notNull().unique(),
     email: varchar('email', { length: 255 }).notNull().unique(),
+    password: varchar('password', { length: 255 }).notNull(),
 })
+
+export const userProfiles = mysqlTable(
+    'user_profiles',
+    {
+        ...commonFields,
+        userId: char('user_id', { length: 24 })
+            .notNull()
+            .unique()
+            .references(() => users.id, { onDelete: 'cascade' }),
+        avatarUrl: varchar('avatar_url', { length: 1024 }),
+        region: varchar('region', { length: 255 }),
+        gender: mysqlEnum('gender', ['male', 'female', 'other']),
+        bio: varchar('bio', { length: 500 }),
+    },
+    (table) => [index('user_profiles_user_idx').on(table.userId)]
+)
 
 export const friendships = mysqlTable(
     'friendships',

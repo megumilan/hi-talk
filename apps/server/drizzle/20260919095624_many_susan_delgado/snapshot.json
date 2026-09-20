@@ -1,0 +1,91 @@
+{
+    "version": "6",
+    "id": "02410015-dccf-477f-a258-e604464bc7cd",
+    "prevIds": ["00000000-0000-0000-0000-000000000000"],
+    "dialect": "mysql",
+    "ddl": [
+        {
+            "name": "users",
+            "entityType": "tables"
+        },
+        {
+            "type": "int",
+            "notNull": true,
+            "autoIncrement": true,
+            "default": null,
+            "onUpdateNow": false,
+            "onUpdateNowFsp": null,
+            "charSet": null,
+            "collation": null,
+            "generated": null,
+            "name": "id",
+            "table": "users",
+            "entityType": "columns"
+        },
+        {
+            "type": "varchar(255)",
+            "notNull": true,
+            "autoIncrement": false,
+            "default": null,
+            "onUpdateNow": false,
+            "onUpdateNowFsp": null,
+            "charSet": null,
+            "collation": null,
+            "generated": null,
+            "name": "name",
+            "table": "users",
+            "entityType": "columns"
+        },
+        {
+            "type": "varchar(255)",
+            "notNull": true,
+            "autoIncrement": false,
+            "default": null,
+            "onUpdateNow": false,
+            "onUpdateNowFsp": null,
+            "charSet": null,
+            "collation": null,
+            "generated": null,
+            "name": "email",
+            "table": "users",
+            "entityType": "columns"
+        },
+        {
+            "type": "timestamp",
+            "notNull": true,
+            "autoIncrement": false,
+            "default": "(now())",
+            "onUpdateNow": false,
+            "onUpdateNowFsp": null,
+            "charSet": null,
+            "collation": null,
+            "generated": null,
+            "name": "created_at",
+            "table": "users",
+            "entityType": "columns"
+        },
+        {
+            "columns": [
+                {
+                    "value": "email",
+                    "isExpression": false
+                }
+            ],
+            "isUnique": true,
+            "using": null,
+            "algorithm": null,
+            "lock": null,
+            "nameExplicit": false,
+            "name": "users_email_unique",
+            "table": "users",
+            "entityType": "indexes"
+        },
+        {
+            "columns": ["id"],
+            "name": "PRIMARY",
+            "table": "users",
+            "entityType": "pks"
+        }
+    ],
+    "renames": []
+}

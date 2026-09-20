@@ -16,6 +16,7 @@
 
 - Prettier: 4-space indent, no semicolons, single quotes, `trailingComma: es5`.
 - ESLint allows unused variables/args/destructured elements prefixed with `_` (ignore pattern `^_`).
+- Omit explicit return type annotations when TypeScript can infer them from the `return` expression (e.g. `function f() { return promiseFn() }` instead of `: Promise<...>`).
 - Formatting and linting are checked on commit; always run `pnpm format` and `pnpm lint` before finishing.
 
 ## Language / 语言偏好
