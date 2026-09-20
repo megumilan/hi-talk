@@ -8,7 +8,7 @@
 ## Commands (run from repo root)
 
 - `pnpm format` — Prettier write over the whole repo.
-- `pnpm lint` — ESLint with `--fix` (flat config in `eslint.config.ts`, loaded via jiti).
+- `pnpm lint` — ESLint with `--fix` (flat config in `eslint.config.ts`, loaded via jiti), then recursively runs each app's own `lint` script (`pnpm -r --if-present lint`; apps without a `lint` script are skipped).
 - No `dev`/`build`/`test`/`typecheck` scripts exist yet at root; there is no test framework installed. App-level scripts live in `apps/*/package.json` and should be run per-package (`pnpm -F <name> <script>` or from the app dir).
 - Every commit triggers husky `pre-commit` → `lint-staged`. Note the `"*": "prettier . --write"` rule formats the whole repo, not just staged files, so a commit can rewrite unrelated files.
 
