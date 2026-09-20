@@ -6,7 +6,8 @@
     "scripts": {
         "format": "prettier . --write",
         "lint": "eslint --config eslint.config.ts . --fix && pnpm -r --if-present lint",
-        "prepare": "husky"
+        "prepare": "husky",
+        "typecheck": "tsc --noEmit && pnpm -r --if-present typecheck"
     },
     "keywords": [],
     "author": "",

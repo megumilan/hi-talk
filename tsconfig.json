@@ -1,0 +1,9 @@
+{
+    "compilerOptions": {
+        "types": ["node"],
+        "module": "ESNext",
+        "moduleResolution": "bundler",
+        "verbatimModuleSyntax": true
+    },
+    "include": ["eslint.config.ts"]
+}
