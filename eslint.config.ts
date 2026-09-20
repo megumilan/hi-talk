@@ -3,9 +3,19 @@ import globals from 'globals'
 import tseslint from 'typescript-eslint'
 import { defineConfig } from 'eslint/config'
 import eslintConfigPrettier from 'eslint-config-prettier'
+import { fileURLToPath } from 'node:url'
+
+const projectRoot = fileURLToPath(new URL('.', import.meta.url))
 
 export default defineConfig([
     { ignores: ['**/dist/**', 'apps/web/**'] },
+    {
+        languageOptions: {
+            parserOptions: {
+                tsconfigRootDir: projectRoot,
+            },
+        },
+    },
     {
         files: ['**/*.{js,mjs,cjs,ts,mts,cts}'],
         plugins: { js },
